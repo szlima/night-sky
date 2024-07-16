@@ -1,0 +1,10 @@
+
+body{
+    width: 100dvw;
+    height: 100dvh;
+
+    color: var(--white-01);
+    background: linear-gradient(var(--black-01) 70%, var(--black-02));
+
+    font-family: sans-serif;    
+}
