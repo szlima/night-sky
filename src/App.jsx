@@ -1,5 +1,6 @@
 
 import Header from './components/Header';
+import DrawingArea from './components/DrawingArea';
 import Toolbox from './components/Toolbox';
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
   return (
     <>
       <Header />
-      <main className="night-sky">night-sky</main>
+      <DrawingArea />
       <Toolbox />
     </>
   );
