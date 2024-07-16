@@ -1,12 +1,11 @@
 
+import Header from './components/Header';
+
 function App() {
 
   return (
     <>
-      <header>
-        <h1>Night sky</h1>
-        <nav className="menu">menu</nav>
-      </header>
+      <Header />
       <main className="night-sky">night-sky</main>
       <div className="toolbox">toolbox</div>
     </>

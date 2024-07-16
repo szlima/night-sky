@@ -1,0 +1,37 @@
+
+.header{
+    padding: 1rem;
+    
+    background-color: var(--black-03);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+.header__title{
+    font-stretch: ultra-condensed;
+}
+
+.header__menu{
+    display: flex;
+    gap: .5rem;
+}
+
+.menu__button{
+    padding: 1rem;
+
+    color: var(--white-01);
+    background-color: var(--black-01);
+    border: none;
+    border-radius: 1rem;
+
+    font-size: 1.2rem;
+}
+
+.menu__button:hover{
+    color: var(--black-03);
+    background-color: var(--white-01);    
+}

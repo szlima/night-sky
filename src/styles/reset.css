@@ -4,3 +4,7 @@
     box-sizing: border-box;
     transition: .7s;
 }
+
+button:hover{
+    cursor: pointer;
+}
