@@ -1,5 +1,6 @@
 
 import Header from './components/Header';
+import Toolbox from './components/Toolbox';
 
 function App() {
 
@@ -7,7 +8,7 @@ function App() {
     <>
       <Header />
       <main className="night-sky">night-sky</main>
-      <div className="toolbox">toolbox</div>
+      <Toolbox />
     </>
   );
 }

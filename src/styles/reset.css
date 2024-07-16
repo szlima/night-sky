@@ -5,6 +5,10 @@
     transition: .7s;
 }
 
+button{
+    border: none;
+}
+
 button:hover{
     cursor: pointer;
 }
