@@ -3,7 +3,8 @@ import { createContext, useState } from 'react';
 const inicialState= {
     drawings: [],
     addDrawing: () => {},
-    undoDrawing: () => {}
+    undoDrawing: () => {},
+    redoDrawing: () => {}
 };
 
 const DrawingsContext= createContext(inicialState);
@@ -21,6 +22,7 @@ function DrawingsProvider({children}){
             };
             return [...previousDrawings, newDrawing];
         });
+        setNextDrawings([]);
     };
 
     const undoDrawing= () => {
@@ -36,8 +38,21 @@ function DrawingsProvider({children}){
         );
     };
 
+    const redoDrawing= () => {
+        if(nextDrawings.length === 0)
+            return;
+
+        let updatedNextDrawings= nextDrawings;
+        const lastDrawing= updatedNextDrawings.shift();
+
+        setDrawings(previousDrawings =>
+            [...previousDrawings, lastDrawing]
+        );
+        setNextDrawings(updatedNextDrawings);
+    };
+
     return (
-        <DrawingsContext.Provider value={{drawings, addDrawing, undoDrawing}}>
+        <DrawingsContext.Provider value={{drawings, addDrawing, undoDrawing, redoDrawing}}>
             {children}
         </DrawingsContext.Provider>
     );

@@ -6,9 +6,7 @@ import { DrawingsContext } from '../contexts/DrawingsContext';
 import './styles/header.css';
 
 function Header(){
-    const {undoDrawing}= useContext(DrawingsContext);
-
-    const handleRedoButton= () => {};
+    const {undoDrawing, redoDrawing}= useContext(DrawingsContext);
 
     return (
         <header className='header'>
@@ -17,7 +15,7 @@ function Header(){
                 <button type='button' className='menu__button' onClick={undoDrawing}>
                     <IoArrowUndo/>
                 </button>
-                <button type='button' className='menu__button' onClick={handleRedoButton}>
+                <button type='button' className='menu__button' onClick={redoDrawing}>
                     <IoArrowRedo/>
                 </button>
             </nav>
