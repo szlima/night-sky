@@ -7,10 +7,10 @@ import Drawing from './Drawing';
 import './styles/drawingArea.css';
 
 function DrawingArea(){
-    const {drawings, handleDrawings}= useContext(DrawingsContext);
+    const {drawings, addDrawing}= useContext(DrawingsContext);
 
     return (
-        <div className="drawing-area" onClick={handleDrawings}>
+        <div className="drawing-area" onClick={addDrawing}>
             {
                 drawings.map((drawing, i) =>
                     <Drawing key={i} type={drawing.type} x={drawing.x} y={drawing.y}/>

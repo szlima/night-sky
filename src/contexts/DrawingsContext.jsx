@@ -2,7 +2,7 @@ import { createContext, useState } from 'react';
 
 const inicialState= {
     drawings: [],
-    handleDrawings: () => {},
+    addDrawing: () => {},
     undoDrawing: () => {}
 };
 
@@ -12,7 +12,7 @@ function DrawingsProvider({children}){
     const [drawings, setDrawings]= useState([]);
     const [nextDrawings, setNextDrawings]= useState([]);
 
-    const handleDrawings= e => {
+    const addDrawing= e => {
         setDrawings(previousDrawings => {
             const newDrawing= {
                 type: 'moon',
@@ -37,7 +37,7 @@ function DrawingsProvider({children}){
     };
 
     return (
-        <DrawingsContext.Provider value={{drawings, handleDrawings, undoDrawing}}>
+        <DrawingsContext.Provider value={{drawings, addDrawing, undoDrawing}}>
             {children}
         </DrawingsContext.Provider>
     );
