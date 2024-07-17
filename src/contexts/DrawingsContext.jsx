@@ -2,13 +2,15 @@ import { createContext, useState } from 'react';
 
 const inicialState= {
     drawings: [],
-    setDrawings: () => {}
+    handleDrawings: () => {},
+    undoDrawing: () => {}
 };
 
 const DrawingsContext= createContext(inicialState);
 
 function DrawingsProvider({children}){
     const [drawings, setDrawings]= useState([]);
+    const [nextDrawings, setNextDrawings]= useState([]);
 
     const handleDrawings= e => {
         setDrawings(previousDrawings => {
@@ -21,8 +23,21 @@ function DrawingsProvider({children}){
         });
     };
 
+    const undoDrawing= () => {
+        if(drawings.length === 0)
+            return;
+
+        let updatedDrawings= drawings;
+        const lastDrawing= updatedDrawings.pop();
+
+        setDrawings(updatedDrawings);
+        setNextDrawings(previousNextDrawings =>
+            [lastDrawing, ...previousNextDrawings]
+        );
+    };
+
     return (
-        <DrawingsContext.Provider value={{drawings, handleDrawings}}>
+        <DrawingsContext.Provider value={{drawings, handleDrawings, undoDrawing}}>
             {children}
         </DrawingsContext.Provider>
     );
