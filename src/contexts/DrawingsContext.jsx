@@ -1,4 +1,6 @@
-import { createContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
+
+import { ShapeContext } from './ShapeContext';
 
 const inicialState= {
     drawings: [],
@@ -11,13 +13,14 @@ const inicialState= {
 const DrawingsContext= createContext(inicialState);
 
 function DrawingsProvider({children}){
+    const {currentShape}= useContext(ShapeContext);
     const [drawings, setDrawings]= useState([]);
     const [nextDrawings, setNextDrawings]= useState([]);
 
     const addDrawing= e => {
         setDrawings(previousDrawings => {
             const newDrawing= {
-                type: 'moon',
+                type: currentShape,
                 x: e.clientX,
                 y: e.clientY
             };
