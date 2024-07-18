@@ -13,8 +13,6 @@ function Toolbox(){
 
     const handleMoonButton= () => {};
 
-    const handleCloudButton= () => {};
-
     return (
         <footer className="toolbox">
             <button type='button' className='toolbox__button' onClick={handleMoonButton}>
@@ -25,7 +23,9 @@ function Toolbox(){
                 onClick={() => setCurrentShape(shapeOptions.star)}>
                 <FaStar />
             </button>
-            <button type='button' className='toolbox__button' onClick={handleCloudButton}>
+            <button type='button'
+                className={`toolbox__button ${getSelectionClass(shapeOptions.cloud)}`}
+                onClick={() => setCurrentShape(shapeOptions.cloud)}>
                 <FaCloud />
             </button>
         </footer>
