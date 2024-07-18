@@ -2,6 +2,7 @@ import { createContext, useState } from 'react';
 
 const inicialState= {
     drawings: [],
+    nextDrawings: [],
     addDrawing: () => {},
     undoDrawing: () => {},
     redoDrawing: () => {}
@@ -26,9 +27,6 @@ function DrawingsProvider({children}){
     };
 
     const undoDrawing= () => {
-        if(drawings.length === 0)
-            return;
-
         let updatedDrawings= drawings;
         const lastDrawing= updatedDrawings.pop();
 
@@ -39,9 +37,6 @@ function DrawingsProvider({children}){
     };
 
     const redoDrawing= () => {
-        if(nextDrawings.length === 0)
-            return;
-
         let updatedNextDrawings= nextDrawings;
         const lastDrawing= updatedNextDrawings.shift();
 
@@ -52,7 +47,9 @@ function DrawingsProvider({children}){
     };
 
     return (
-        <DrawingsContext.Provider value={{drawings, addDrawing, undoDrawing, redoDrawing}}>
+        <DrawingsContext.Provider value={{
+            drawings, nextDrawings, addDrawing, undoDrawing, redoDrawing
+        }}>
             {children}
         </DrawingsContext.Provider>
     );
