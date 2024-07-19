@@ -11,11 +11,11 @@ function Toolbox(){
     const getSelectionClass= shape =>
         (currentShape === shape) && 'toolbox__button--selected';
 
-    const handleMoonButton= () => {};
-
     return (
         <footer className="toolbox">
-            <button type='button' className='toolbox__button' onClick={handleMoonButton}>
+            <button type='button'
+                className={`toolbox__button ${getSelectionClass(shapeOptions.fullMoon)}`}
+                onClick={() => setCurrentShape(shapeOptions.fullMoon)}>
                 <FaMoon />
             </button>
             <button type='button'
