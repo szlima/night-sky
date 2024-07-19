@@ -7,13 +7,14 @@ const inicialState= {
     nextDrawings: [],
     addDrawing: () => {},
     undoDrawing: () => {},
-    redoDrawing: () => {}
+    redoDrawing: () => {},
+    containsMoon: () => {}
 };
 
 const DrawingsContext= createContext(inicialState);
 
 function DrawingsProvider({children}){
-    const {currentShape}= useContext(ShapeContext);
+    const {currentShape, isMoonShape, resetCurrentShape}= useContext(ShapeContext);
     const [drawings, setDrawings]= useState([]);
     const [nextDrawings, setNextDrawings]= useState([]);
 
@@ -27,6 +28,9 @@ function DrawingsProvider({children}){
             return [...previousDrawings, newDrawing];
         });
         setNextDrawings([]);
+
+        if(isMoonShape(currentShape))
+            resetCurrentShape();
     };
 
     const undoDrawing= () => {
@@ -49,9 +53,12 @@ function DrawingsProvider({children}){
         setNextDrawings(updatedNextDrawings);
     };
 
+    const containsMoon= () =>
+        drawings.some(drawing => isMoonShape(drawing.type));
+
     return (
         <DrawingsContext.Provider value={{
-            drawings, nextDrawings, addDrawing, undoDrawing, redoDrawing
+            drawings, nextDrawings, addDrawing, undoDrawing, redoDrawing, containsMoon
         }}>
             {children}
         </DrawingsContext.Provider>
