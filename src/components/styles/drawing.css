@@ -80,14 +80,36 @@
 
 /* --------- --------- */
 
-.drawing--full-moon,
-.drawing--new-moon,
-.drawing--waning-crescent-moon,
-.drawing--waxing-crescent-moon{
+.drawing--moon{
     width: 9rem;
     height: 9rem;
 
     border-radius: 50%;
+}
+
+.drawing--moon::before,
+.drawing--moon::after{
+    content: '';
+
+    background-color: var(--black-05);
+    border-radius: 50%;
+
+    position: absolute;
+    left: 1rem;
+}
+
+.drawing--moon::before{
+    width: 2rem;
+    height: 2rem;
+
+    top: 2rem;
+}
+
+.drawing--moon::after{
+    width: 3rem;
+    height: 3rem;
+
+    top: 4.5rem;
 }
 
 .drawing--full-moon,
