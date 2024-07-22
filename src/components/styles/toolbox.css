@@ -11,12 +11,8 @@
     flex-wrap: wrap;
 }
 
-.toolbox__button{
-    width: 30%;
-
-    border-top-right-radius: 1rem;
-    border-top-left-radius: 1rem;
-
+.toolbox__button,
+.options__button{
     color: var(--white-01);
     background-color: var(--black-03);
 
@@ -27,7 +23,15 @@
     font-size: 2rem; 
 }
 
-.toolbox__button:hover{
+.toolbox__button{
+    width: 30%;
+
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+}
+
+.toolbox__button:hover,
+.options__button:hover{
     color: var(--black-01);
     background-color: var(--white-01);
 }
@@ -39,4 +43,24 @@
 
 .toolbox__button--selected{
     background-color: var(--black-01);
+}
+
+.toolbox__options{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+
+    position: absolute;
+    top: -100%;
+    left: 0;
+}
+
+.toolbox__options--disabled{
+    display: none;
+}
+
+.options__button{
+    width: 20%;
+    padding: 1rem .5rem;
+    border-radius: 1rem;
 }

@@ -1,5 +1,6 @@
 
 import { ShapeProvider } from './ShapeContext';
+import { ToolboxProvider } from './ToolboxContext';
 import { DrawingsProvider } from './DrawingsContext';
 
 function composeProviders(providers){
@@ -13,5 +14,5 @@ function composeProviders(providers){
 }
 
 export const IndexProvider= composeProviders([
-    ShapeProvider, DrawingsProvider
+    ShapeProvider, ToolboxProvider, DrawingsProvider
 ]);

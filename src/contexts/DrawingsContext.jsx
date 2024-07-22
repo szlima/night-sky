@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from 'react';
 
 import { ShapeContext } from './ShapeContext';
+import { ToolboxContext } from './ToolboxContext';
 
 const inicialState= {
     drawings: [],
@@ -14,7 +15,8 @@ const inicialState= {
 const DrawingsContext= createContext(inicialState);
 
 function DrawingsProvider({children}){
-    const {currentShape, isMoonShape, resetCurrentShape}= useContext(ShapeContext);
+    const {currentShape, isMoonCurrentShape, isMoonShape, resetCurrentShape}= useContext(ShapeContext);
+    const {setShowExtraOptions}= useContext(ToolboxContext);
     const [drawings, setDrawings]= useState([]);
     const [nextDrawings, setNextDrawings]= useState([]);
 
@@ -28,8 +30,9 @@ function DrawingsProvider({children}){
             return [...previousDrawings, newDrawing];
         });
         setNextDrawings([]);
+        setShowExtraOptions(false);
 
-        if(isMoonShape(currentShape))
+        if(isMoonCurrentShape())
             resetCurrentShape();
     };
 

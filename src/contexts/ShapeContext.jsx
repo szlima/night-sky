@@ -16,6 +16,7 @@ const initialState= {
     currentShape: shapeOptions.star,
     setCurrentShape: () => {},
     isCurrentShape: () => {},
+    isMoonCurrentShape: () => {},
     isMoonShape: () => {},
     resetCurrentShape: () => {}
 };
@@ -27,6 +28,8 @@ function ShapeProvider({children}){
 
     const isCurrentShape= shape => (currentShape === shape);
 
+    const isMoonCurrentShape= () => isMoonShape(currentShape);
+
     const isMoonShape= shape => shape.includes(moonShape);
 
     const resetCurrentShape= () => setCurrentShape(shapeOptions.star);
@@ -34,7 +37,7 @@ function ShapeProvider({children}){
     return (
         <ShapeContext.Provider value={{
             shapeOptions, currentShape, setCurrentShape,
-            isCurrentShape, isMoonShape, resetCurrentShape
+            isCurrentShape, isMoonCurrentShape, isMoonShape, resetCurrentShape
         }}>
             {children}
         </ShapeContext.Provider>
