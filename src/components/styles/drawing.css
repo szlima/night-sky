@@ -81,13 +81,18 @@
 /* --------- --------- */
 
 .drawing--full-moon,
-.drawing--new-moon{
+.drawing--new-moon,
+.drawing--waning-crescent-moon{
     width: 9rem;
     height: 9rem;
 
+    border-radius: 50%;
+}
+
+.drawing--full-moon,
+.drawing--new-moon{
     box-shadow: 0 0 1rem .1rem var(--white-03);
 
-    border-radius: 50%;
     transform: translate(-50%, -50%);
 }
 
@@ -97,4 +102,12 @@
 
 .drawing--new-moon{
     background-color: var(--white-04);
+}
+
+.drawing--waning-crescent-moon{
+    background-color: transparent;
+    box-shadow: inset 1rem 0 0 .5rem var(--white-03),
+        -1.5rem 0 1rem .1rem var(--white-03);
+
+    transform: translate(-25%, -50%);
 }
