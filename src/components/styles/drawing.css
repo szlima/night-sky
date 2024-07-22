@@ -80,13 +80,21 @@
 
 /* --------- --------- */
 
-.drawing--full-moon{
+.drawing--full-moon,
+.drawing--new-moon{
     width: 9rem;
     height: 9rem;
 
-    background-color: var(--white-03);
     box-shadow: 0 0 1rem .1rem var(--white-03);
 
     border-radius: 50%;
     transform: translate(-50%, -50%);
+}
+
+.drawing--full-moon{
+    background-color: var(--white-03);
+}
+
+.drawing--new-moon{
+    background-color: var(--white-04);
 }
