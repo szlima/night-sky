@@ -82,7 +82,8 @@
 
 .drawing--full-moon,
 .drawing--new-moon,
-.drawing--waning-crescent-moon{
+.drawing--waning-crescent-moon,
+.drawing--waxing-crescent-moon{
     width: 9rem;
     height: 9rem;
 
@@ -104,10 +105,17 @@
     background-color: var(--white-04);
 }
 
-.drawing--waning-crescent-moon{
+.drawing--waning-crescent-moon,
+.drawing--waxing-crescent-moon{
     background-color: transparent;
     box-shadow: inset 1rem 0 0 .5rem var(--white-03),
         -1.5rem 0 1rem .1rem var(--white-03);
+}
 
+.drawing--waning-crescent-moon{
     transform: translate(-25%, -50%);
+}
+
+.drawing--waxing-crescent-moon{
+    transform: translate(-75%, -50%) rotate(180deg);
 }
