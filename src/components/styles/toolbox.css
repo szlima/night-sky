@@ -64,3 +64,54 @@
     padding: 1rem .5rem;
     border-radius: 1rem;
 }
+
+@media only screen and (min-width: 900px){
+    .toolbox{
+        width: 900px;
+        padding: 1rem;
+
+        background-color: var(--black-03);
+
+        border-top-left-radius: 10rem;
+        border-top-right-radius: 10rem;
+
+        justify-content: space-around;
+
+        left: 50%;
+        transform: translate(-50%);
+    }
+
+    .toolbox__button{
+        width: auto;
+    }
+
+    .toolbox__button,
+    .toolbox__button:hover,
+    .toolbox__button:disabled,
+    .toolbox__button--selected{
+        background-color: transparent;
+    }
+
+    .toolbox__button,
+    .options__button{
+        color: var(--white-05);
+    }
+
+    .toolbox__button:hover,
+    .options__button:hover{
+        color: var(--white-03);
+    }
+
+    .toolbox__button:disabled{
+        color: var(--black-04);
+    }
+
+    .options__button,
+    .options__button:hover{
+        background-color: var(--black-03);
+    }
+
+    .toolbox__button--selected{
+        color: var(--white-02);
+    }
+}
